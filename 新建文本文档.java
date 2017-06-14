@@ -38,18 +38,7 @@ public class DriverController {
 
 		String jsp = "orderCarList";
 		try {
-			String id = new String(request.getParameter("no").getBytes("ISO-8859-1"), "UTF-8");
-			// 获取登陆的信息
-			List<UserInfo> userInfo = (List<UserInfo>) session.getAttribute("userInfo");
-
-			DriverInfoExample driverInfoExample = new DriverInfoExample();
-			driverInfoExample.createCriteria().andIdEqualTo(Integer.parseInt(id));
-			List<DriverInfo> driverInfo = driverDao.selectByExample(driverInfoExample);
-			DriverInfo drInfo = driverInfo.get(0);
-			drInfo.setIsyes("上车成功");
-			drInfo.setByphone(userInfo.get(0).getPhone());
-			driverDao.updateByExample(drInfo, driverInfoExample);
-			session.setAttribute("tips", "上车成功！，在我的行程中查看，评价。");
+			
 
 			// 更新顺风车的列表
 			DriverInfoExample driverExample = new DriverInfoExample();
@@ -57,6 +46,25 @@ public class DriverController {
 			List<DriverInfo> driverNList = driverDao.selectByExample(driverExample);
 			session.setAttribute("driverNList", driverNList);
 
+// 更新顺风车的列表
+			DriverInfoExample driverExample = new DriverInfoExample();
+			driverExample.createCriteria().andIsyesEqualTo("N");// 更新顺风车的列表
+			DriverInfoExample driverExample = new DriverInfoExample();
+			driverExample.createCriteria().andIsyesEqualTo("N");// 更新顺风车的列表
+			DriverInfoExample driverExample = new DriverInfoExample();
+			driverExample.createCriteria().andIsyesEqualTo("N");// 更新顺风车的列表
+			DriverInfoExample driverExample = new DriverInfoExample();
+			driverExample.createCriteria().andIsyesEqualTo("N");// 更新顺风车的列表
+			DriverInfoExample driverExample = new DriverInfoExample();
+			driverExample.createCriteria().andIsyesEqualTo("N");// 更新顺风车的列表
+			DriverInfoExample driverExample = new DriverInfoExample();
+			driverExample.createCriteria().andIsyesEqualTo("N");// 更新顺风车的列表
+			DriverInfoExample driverExample = new DriverInfoExample();
+			driverExample.createCriteria().andIsyesEqualTo("N");// 更新顺风车的列表
+			DriverInfoExample driverExample = new DriverInfoExample();
+			driverExample.createCriteria().andIsyesEqualTo("N");// 更新顺风车的列表
+			DriverInfoExample driverExample = new DriverInfoExample();
+			driverExample.createCriteria().andIsyesEqualTo("N");
 		} catch (Exception e) {
 			// TODO: handle exception
 			session.setAttribute("tips", e.getMessage());
